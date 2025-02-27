@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="titl">Word</title>
+    <link rel = "icon" href = "img/office.png" type = "image/x-icon" />
+    <link rel = "shortcut icon" href = "img/office.png" type = "image/x-icon" />
+    <!-- <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Arial|Calibri|Comic+Sans+MS|Courier+New|Georgia|Helvetica|Palatino|Tahoma|Times+New+Roman|Verdana|Futura|Garamond|Gill+Sans|Impact|Lobster|Lucida+Console|Monaco|Open+Sans|Roboto|Source+Sans+Pro|Trebuchet+MS|Ubuntu|Varela+Round|Webdings|Yanone+Kaffeesatz|Zilla+Slab|Century+Gothic|Didot|Elephant|Franklin+Gothic+Medium&display=swap"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <form class="header__new-title" id="titleForm">
+                <p>Заголовок файлу:</p>
+                <input type="text" id="newTitle">
+                <button class="save-title" id="saveTitle"></button>
+            </form>
+            <div class="header__style">
+                <!-- Буфер обміну -->
+                <div class="clipboard">
+                    <button type="button" class="btn btn-secondary icon button" id="puste"><img src="/img/cut_light.png"
+                            alt="cut.png"> Вставити</button>
+                    <button type="button" class="btn btn-secondary icon button" id="cut"><img src="img/cut-with-scissors.png" alt="" class="icon">Вирізати</button>
+                    <button type="button" class="btn btn-secondary icon button" id="copy"><img src="img/copy.png" alt="" class="icon">Скопіювати</button>
+                    <p class="clipboard-title">Буфер обміну</p>
+                </div>
+
+                <!-- Налаштування шрифта -->
+                <div class="font">
+                    <!-- Обрати шрифт тексту -->
+                    <div class="flex" style="grid-area: font-size;" id="">
+                        <div class="btn-group dropdown-menu-end dropdown font-selection" id="fontDropdown">
+                            <input type="text" id="searchFont">
+                            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+                                data-bs-toggle="dropdown" data-bs-auto-close="inside" aria-expanded="false"
+                                id="fontButton">
+                                <!-- <span class="visually-hiden">Toggle Dropdown</span> -->
+                            </button>
+                            <ul class="dropdown-menu" id="fontDropdownMenu">
+                                <li><h6>Усі шрифти</h6></li>
+                            </ul>
+
+                        </div>
+
+                        <!-- Обрати розмір тексту -->
+                        <div class="size-text" id="sizeText">
+                            <div class="btn-group dropdown-menu-end dropdown" id="sizeDropdown">
+                                <input type="text" id="inputSize">
+                                <button type="button"
+                                    class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+                                    data-bs-toggle="dropdown" data-bs-auto-close="inside" aria-expanded="false"
+                                    id="sizeButton">
+                                </button>
+                                <ul class="dropdown-menu" id="sizeDropdownMenu">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Toggle style -->
+                    <div class="bold-italic-lineThrough style-container" style="grid-area: toggle-style;">
+                        <button type="button" class="btn btn-secondary button bold" id="bold">Ж</button>
+                        <button type="button" class="btn btn-secondary button italic" id="italic">К</button>
+                        <button type="button" class="btn btn-secondary button underline" id="underline">П</button>
+                        <button type="button" class="btn btn-secondary button lineThrough" id="lineThrough">ab</button>
+                        <button type="button" class="btn btn-secondary button" id="subButton">X<span
+                                class="sub">2</span></button>
+                        <button type="button" class="btn btn-secondary button" id="superButton">X<span
+                                class="super">2</span></button>
+                    </div>
+                    <!-- Size++, Size--, change register -->
+                    <div class="increase-decrease-fontSize style-container" style="grid-area: increaseSize;">
+                        <!-- Size++, Size-- -->
+                        <button type="button" class="btn btn-secondary button" id="increaseSize">A+</button>
+                        <button type="button" class="btn btn-secondary button" id="decreaseSize">a-</button>
+
+                        <!-- change register -->
+                        <div class="btn dropdown-menu-start dropdown" id="registerDropdown">
+                            <button type="button" class="btn btn-sm btn-secondary button dropdown-toggle"
+                                data-bs-toggle="dropdown" data-bs-auto-close="inside" aria-expanded="false"
+                                id="registerButton">
+                                Aa
+                            </button>
+                            <div class="dropdown-menu" id="registerDropdownMenu">
+                                <button class="dropdown-item" id="uperRegister">УСІ З ВЕЛИКОЇ</button>
+                                <button class="dropdown-item" id="loverRegister">усі з малої</button>
+                                <button class="dropdown-item" id="sentenceRegister">Як у реченнях</button>
+                                <button class="dropdown-item" id="changeRegister">зМІНТИ рЕГІСТИР</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Зінити колір і колір фону тексту -->
+                    <div class="fontColor style-container" style="grid-area: font-color;">
+                        <!-- Змінити колір тексту -->
+                        <div class="btn dropdown-menu-start dropdown" id="colorDropdown">
+                            <!-- Вбудовані кольри -->
+                            <button type="button" class="btn btn-sm btn-secondary button dropdown-toggle"
+                                data-bs-toggle="dropdown" data-bs-auto-close="inside" aria-expanded="false"
+                                id="colorButton">
+                                C
+                            </button>
+                            <div class="dropdown-menu" id="colorDropdownMenu">
+                                <div class="grid">
+                                    <button class="button" style="background-color: white;">white</button>
+                                    <button class="button" style="background-color: orange;">orange</button>
+                                    <button class="button" style="background-color: yellow;">yellow</button>
+                                    <button class="button" style="background-color: deepskyblue;">deepskyblue</button>
+
+                                    <button class="button" style="background-color: gray;">gray</button>
+                                    <button class="button" style="background-color: red;">red</button>
+                                    <button class="button" style="background-color: greenyellow;">greenyellow</button>
+                                    <button class="button" style="background-color: blue;">blue</button>
+
+                                    <button class="button" style="background-color: black;">black</button>
+                                    <button class="button" style="background-color: darkred;">darkred</button>
+                                    <button class="button" style="background-color: green;">green</button>
+                                    <button class="button" style="background-color: purple;">purple</button>
+                                </div>
+
+                                <!-- Користувацький колір фону тексту -->
+                                <div class="other-color p-2">
+                                    Інший колір
+                                    <input type="color" id="textColor">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Зінити колір фону тексту -->
+                        <div class="btn dropdown-menu-start dropdown" id="bgColorDropdown">
+                            <!-- Вбудовані кольри -->
+                            <button type="button" class="btn btn-sm btn-secondary button dropdown-toggle"
+                                data-bs-toggle="dropdown" data-bs-auto-close="inside" aria-expanded="false"
+                                id="bgColorButton">
+                                Bg
+                            </button>
+                            <div class="dropdown-menu" id="bgColorDropdownMenu">
+                                <div class="grid">
+                                    <button class="button" style="background-color: white;">white</button>
+                                    <button class="button" style="background-color: orange;">orange</button>
+                                    <button class="button" style="background-color: yellow;">yellow</button>
+                                    <button class="button" style="background-color: deepskyblue;">deepskyblue</button>
+
+                                    <button class="button" style="background-color: gray;">gray</button>
+                                    <button class="button" style="background-color: red;">red</button>
+                                    <button class="button" style="background-color: greenyellow;">greenyellow</button>
+                                    <button class="button" style="background-color: blue;">blue</button>
+
+                                    <button class="button" style="background-color: black;">black</button>
+                                    <button class="button" style="background-color: darkred;">darkred</button>
+                                    <button class="button" style="background-color: green;">green</button>
+                                    <button class="button" style="background-color: purple;">purple</button>
+                                </div>
+                                <!-- Користувацький колір фону тексту -->
+                                <div class="other-color p-2">
+                                    Інший колір
+                                    <input type="color" id="bgTextColor">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary button " id="clearStyle"></button>
+
+                    </div>
+                    <p class="font-title">Шрифт</p>
+                </div>
+
+                <!-- Налаштування сторінки -->
+                <div class="pageSettings">
+                    <!-- Відступи сторінки -->
+                    <div class="dropdown-menu-start dropdown" id="boundDropdown">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                                data-bs-auto-close="inside" aria-expanded="false" id="bound">
+                            <div>
+                                <img src="/img/margins%20(1).png" alt="">
+                            </div>
+                            <p>Поля</p>
+                        </button>
+                        <div class="dropdown-menu" id="boundDropdownMenu">
+                            <input class="dropdown-item" type="text" id="inputBound">
+                            <ul class="mb-0 p-0" >
+                                <li class="dropdown-item" id="clearBound"><img src="" alt="">Без відступів</li>
+                                <li class="dropdown-item" id="standartBound"><img src="" alt="">Стандартні</li>
+                                <li class="dropdown-item" id="greateBound"><img src="" alt="">Збільшені</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Орієнтація сторінки -->
+                    <div class="dropdown-menu-start dropdown" id="orientationDropdown">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                                data-bs-auto-close="inside" aria-expanded="false" id="orientation">
+                            <div>
+                                <img src="/img/orientation.png" alt="">
+                            </div>
+                            <p>Орієнтація</p>
+                        </button>
+                        <ul class="dropdown-menu" id="orientationDropdownMenu">
+                            <li class="dropdown-item" id="bookOrientation"><img src="" alt=""> Книжкова</li>
+                            <li class="dropdown-item" id="landscapeOrientation"><img src="" alt=""> Альбомна</li>
+                        </ul>
+                    </div>
+
+
+                    <!-- Відношення сторін -->
+                    <div class="dropdown-menu-start dropdown" id="ratioDropdown">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                                data-bs-auto-close="inside" aria-expanded="false" id="pageSize">
+                            <div>
+                                <img src="/img/size%20(1).png" alt="">
+                            </div>
+                            <p>Відношення</p>
+                        </button>
+                        <ul class="dropdown-menu" id="ratioDropdownMenu">
+                            <li class="dropdown-item" id="smallerRatio"><img src="" alt=""> Відношення 21 : 14.8</li>
+                            <li class="dropdown-item" id="standardRatio"><img src="" alt=""> Відношення 29 : 21</li>
+                            <li class="dropdown-item" id="greateRatio"><img src="" alt=""> Відношення 42 : 29.7</li>
+                        </ul>
+                    </div>
+
+                    <p class="pageSettings-title">Параметри сторінки</p>
+                </div>
+
+            </div>
+        </header>
+        <main id="main">
+            <div class="main__sheet" id="sheet">
+
+            </div>
+        </main>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+
+</html> 
+<!-- ▾ -->
+
+
+<!-- <button class="btn btn-secondary btn-sm" type="button">
+    Small split button
+</button> -->
+<!-- <div class="main__textarea-container">
+    <textarea name="" id="areaPlace" cols="30" rows="10" placeholder="Введіть текст:"></textarea>
+    <button class="save btn btn-sm btn-secondary bg-success " id="saveBtn">save</button>
+    <button class="btn btn-sm btn-secondary mt-2" id="newSegment">Create a segment with individual styles</button>
+</div> -->

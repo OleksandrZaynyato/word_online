@@ -1,0 +1,347 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 170px;
+    background-color: #f3f2f1;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+.icon img{
+    width: 100%;
+}
+
+.header__new-title {
+    height: 35px;
+    background-color: #2b579a;
+    display: flex;
+    color: aliceblue;
+    padding: 5px 8px;
+}
+
+.header__new-title input {
+    height: 25px;
+    margin-left: 10px;
+}
+
+.header__style{
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    height: calc(100% - 35px);
+}
+.header__style > div{
+    margin-left: 10px;
+}
+
+.save-title {
+    height: 25px;
+    width: 25px;
+    background-color: #4CAF50;
+    background-image: url(/img/check.png);
+    background-size: cover;
+    border: 0;
+}
+
+/* .font{
+    width: fit-content;
+} */
+
+.font-selection{
+    /* width: fit-content; */
+    max-width: 192px;
+}
+.font-selection input {
+    max-width: 164px;
+    padding-left: 3px;
+}
+
+.font-selection .dropdown-menu {
+    width: 212px;
+    max-width: 192px;
+    max-height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.font-selection .dropdown-menu h6 {
+    margin-left: 5px;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.flex{
+    display: flex;
+}
+.size-text{
+    width: 70px;
+    max-width: 70px;
+    display: flex;
+}
+.size-text input {
+    max-width: 43px;
+    padding-left: 3px;
+}
+
+.size-text .dropdown-menu{
+    width: 70px;
+    min-width: 70px;
+    max-width: 70px;
+    max-height: 350px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-size: 15px;
+}
+
+.dropdown-item{
+    padding-left: 8px;
+}
+
+main {
+    background-color: #e6e6e6;
+    position: relative;
+    padding: 40px 0;
+    /* height: 1500px; */
+}
+
+.main__sheet {
+    margin: auto;
+    width: 60%;
+    background-color: #fff;
+    padding: 15px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+
+
+#caretID{
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    from{
+        opacity: 1;
+    }
+    50%{
+        opacity: 1;
+    }
+    51%{
+        opacity: 0;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+.style-container {
+    /* display: inline; */
+    /* display: flex; */
+    width: fit-content;
+    height: fit-content;
+}
+.button{    
+    width: 30px;
+    height: 30px;
+
+}
+
+.btn, #sizeText, .font-selection{
+    --bs-btn-padding-x: 0;
+    --bs-btn-padding-y: 0;
+    /* padding: 0 !important; */
+
+}
+
+.clipboard{
+    height: 100%;
+    width: 12%;
+    width: 170px;
+    display: grid;
+    grid-template-areas: "puste cut"
+                         "puste copy"
+                         "title title";
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: 1fr 1fr 20px;
+    grid-gap: 5px;
+    margin-left: 0 !important;
+    text-align: center;
+}
+.clipboard button{
+    width: 100%;
+    height: 100%;
+    font-size: 11px;
+}
+
+#puste{grid-area: puste;}
+#cut{grid-area: cut;}
+#copy{grid-area: copy;}
+.clipboard-title{grid-area: title; margin: 0;}
+
+#cut img, #copy img{
+    margin-right: 5px;
+}
+
+
+.font{
+    /*width: 30%;*/
+    width: 380px;
+    height: 100%;
+    display: grid;
+    grid-template-areas: "font-size increaseSize"
+                         "toggle-style font-color"
+                         "font-title font-title";
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 32px 1fr 20px;
+    grid-gap: 5px;
+}
+.font-title{grid-area: font-title; margin: 0; text-align: center;}
+/* 
+font-size
+toggle-style
+increaseSize
+font-color
+*/
+#searchFont, #fontButton, #inputSize, #sizeButton{
+    max-height: 32px;
+}
+#fontDropdown, #sizeDropdown{
+max-height: 32px;
+}
+.isUsed{background-color: #292b2c;}
+
+.bold{font-weight: bolder;}
+.italic{font-style: italic;}
+.underline{text-decoration: underline;}
+.lineThrough{text-decoration: line-through;}
+.subButton{vertical-align: sub;}
+.superButton{vertical-align: super;}
+
+
+
+.grid {
+    display: grid;
+    grid-template-columns: 30px 30px 30px 30px;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 8px;
+    padding: 0 8px;
+}
+.grid .button{
+    font-size: 0;
+    border: 1px solid rgb(177, 177, 177);
+}
+#colorDropdownMenu {
+    width: fit-content;
+    /* min-width: 140px; */
+}
+
+.other-color{
+    height: fit-content;
+}
+
+.pageSettings{
+    width: 280px;
+    height: 100%;
+    display: grid;
+    grid-template-areas: "bound orientation pageSize"
+                         "pageSettings-title pageSettings-title pageSettings-title";
+    grid-template-columns: 60px 94px 105px;
+    grid-template-rows: 90px 20px;
+    grid-gap: 10px;
+}
+#bound{grid-area: bound;}
+#orientation{grid-area: orientation;}
+#pageSize{grid-area: pageSize;}
+.pageSettings-title{grid-area: pageSettings-title; margin: 0; text-align: center;}
+
+.pageSettings button.btn.btn-secondary{
+    /* margin: 0 5px; */
+    /* width: 80px !important; */
+    width: fit-content;
+    height: 95px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+.pageSettings button div{
+    width: 100%;
+    height: 60px;
+}
+.pageSettings button img{
+    /* width: 70%; */
+    height: 100%;
+    margin: auto;
+    padding: 10px;
+    /* width: 72.91px; */
+    /* width: 60px; */
+    /* height: 60px; */
+    /* height: 72.91px; */
+}
+/* .pageSettings :nth-child(2) img{
+    width: 72.91px;
+    height: 72.91px;
+} */
+
+.pageSettings button p{
+    width: 100%;
+    margin: 0;
+    padding: 0 10px 3px;
+}
+
+.pageSettings .dropdown-menu{
+    width: 160px;
+    min-width: 100px;
+}
+
+
+/* Заборона редагування за допомогою клавіатури */
+[contenteditable="true"]:focus {
+    pointer-events: none;
+    /* cursor: none; */
+    cursor: text;
+    /* border: none; */
+    outline: none;
+    /* caret-color: white; */
+    /* user-select: auto; */
+}
+.main__sheet:hover{
+    cursor: text;
+}
+
+#loadImg{
+    width: 120px;
+}
+
+#clearStyle{
+    background: url("img/clearStyle.png") no-repeat ;
+    background-size: cover;
+}
+/**/
+
+#cut, #copy{
+    display: flex;
+    padding: 10px 5px;
+}
+#cut img, #copy img{
+    height: 20px;
+    width: 20px;
+}
+
+#ratioDropdownMenu{
+    min-width: 180px;
+}
+
+#inputBound{
+    border: 1px black solid;
+}
